@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<th:block th:replace="~{fragmentos/link-script::link-scrpit}"></th:block>
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Nueva Tarea</title>
+</head>
+<body>
+<div th:replace="~{fragmentos/navbar::navbar}"></div>
+<div th:replace="~{fragmentos/titulo::titulo('Agregar Nueva Tarea')}"></div>
+<p></p>
+<div class="container">
+  <form action="/agregar" th:object="${tarea}" method="post">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre de la Tarea</label>
+      <input type="text" class="form-control" id="nombre" required=true th:field="*{nombre}">
+    </div>
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripcion</label>
+      <input type="text" class="form-control" id="descripcion" required=true th:field="*{descripcion}">
+    </div>
+    <button type="submit" class="btn btn-primary">Agregar</button>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:https:\\thymeleaf.org>
+<th:block th:replace="~{fragmentos/link-script::link-scrpit}"></th:block>
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Tareas</title>
+</head>
+<body>
+<div th:replace="~{fragmentos/navbar::navbar}"></div>
+<div th:replace="~{fragmentos/titulo::titulo('Lista de Tareas')}"></div>
+<div class="container">
+    <table class="table table-bordered table-hover table-stripped">
+        <thead class="table-dark">
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Identificador</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Fecha de Creacion</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tarea:${tareas}">
+            <th th:text="${tarea.id}" scope="row"></th>
+            <td th:text="${tarea.nombre}"></td>
+            <td th:text="${tarea.descripcion}"></td>
+            <td th:text="${tarea.estado}"></td>
+            <td th:text="${tarea.fecha_creacion}"></td>
+            <td >
+<!--                @{/editar-formulario/{id}(id=${tarea.id})} ===== esto se encarga de poder obtener el id del objeto tarea y mandarlo atravez de la url al controlador-->
+                <a th:href="@{/editar-formulario/{id}(id=${tarea.id})}" class="btn btn-warning btn-small me-3">Editar</a>
+            </td>
+            <td >
+                <a th:href="@{/eliminar/{id}(id=${tarea.id})}" class="btn btn-danger btn-small me-3">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

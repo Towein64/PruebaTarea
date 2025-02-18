@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<div th:fragment="navbar">
+    <nav class="navbar" style="background-color: #567F58;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/listaTareas">
+                <img src="https://cdn-icons-png.flaticon.com/512/1028/1028163.png" alt="Logo" width="30" height="32" class="d-inline-block align-text-top">
+                Gestor de Tareas
+            </a>
+            <div th:if="${session.usuarioLogueado}" id="navbartext" class="navbar-brand ms-auto">
+                <p>Bienvenido, <span th:text="${session.usuarioLogueado.nombre}"></span></p>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="background-color: greenyellow">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/listaTareas">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/listaTareas">Lista de tareas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/agregar">Nueva Tarea</a>
+                    </li>
+                    <li th:if="${session.usuarioLogueado}" >
+                        <a href="/logout" class="nav-link">Cerrar Sesion</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+</head>
+</html>
