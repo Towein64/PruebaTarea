@@ -1,18 +1,10 @@
-version: '3.8'
-services:
-  mysql:
-    image: mysql:8.0
-    container_name: my_mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: youcantkillme123
-      MYSQL_DATABASE: prueba_tareas
-      MYSQL_USER: root
-      MYSQL_PASSWORD: tosw
-    ports:
-      - "3306:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
-
-volumes:
-  mysql_data:
+#services:
+#  mysql:
+#    image: mysql:8.0
+#    container_name: my_mysql
+#    restart: always
+#    environment:
+#      MYSQL_ROOT_PASSWORD: tosw
+#      MYSQL_DATABASE: prueba_tareas
+#    ports:
+#      - "3306:3306"
